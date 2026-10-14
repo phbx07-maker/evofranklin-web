@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EvoFranklin AI Studio — Studio AI-Assistant & Automation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eef6ff',
+              500: '#0284c7',
+              600: '#0369a1',
+              900: '#082f49',
+              dark: '#0a0f1d',
+              card: '#0f172a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #060913; color: #f1f5f9; }
+    .glow-cyan { box-shadow: 0 0 40px -10px rgba(6, 182, 212, 0.3); }
+    .glow-card { border: 1px solid rgba(255, 255, 255, 0.08); background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(10, 15, 29, 0.95) 100%); }
+    .chat-bubble-ai { background: #1e293b; border: 1px solid #334155; }
+    .chat-bubble-user { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); }
+  </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
+
+  <!-- TOP NAV -->
+  <header class="border-b border-slate-800/80 sticky top-0 bg-[#060913]/90 backdrop-blur z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-bold text-black text-lg tracking-wider shadow-lg shadow-cyan-500/20">EF</div>
+        <div>
+          <span class="font-extrabold tracking-tight text-lg text-white">EvoFranklin<span class="text-cyan-400">.ai</span></span>
+          <span class="hidden sm:inline-block ml-2 text-xs font-medium px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800">Studio</span>
+        </div>
+      </div>
+      <div class="text-xs sm:text-sm text-slate-400 font-medium">
+        Tagline: <span class="text-slate-200 font-semibold">Studio AI-Assistant & Automation</span>
+      </div>
+      <div>
+        <a href="#katalog" class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black transition-all">Lihat Live Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-cyan-400 text-xs font-semibold mb-6">
+      <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> B2B Sales & Customer Support System
+    </div>
+    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto">
+      Bukan Chatbot Biasa. <br>
+      <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
+        Sistem Penawaran Otomatis & Follow-Up 24 Jam.
+      </span>
+    </h1>
+    <p class="mt-5 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
+      Tinggalkan metode pasif. Prospek masuk di website, AI mengkualifikasi kebutuhan, membuat draf estimasi biaya resmi, mengirimkan ke WhatsApp, dan melakukan auto-followup sampai closing.
+    </p>
+
+    <!-- FUNNEL PIPELINE STEPS -->
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-4 text-left max-w-5xl mx-auto">
+      <div class="glow-card p-5 rounded-2xl relative">
+        <div class="text-cyan-400 font-mono text-xs font-bold mb-2">01. INTERAKTIF</div>
+        <div class="font-bold text-white text-sm mb-1">Kualifikasi Kebutuhan</div>
+        <p class="text-xs text-slate-400">AI memandu prospek dengan form cerdas / percakapan tanpa gesekan teknis.</p>
+      </div>
+      <div class="glow-card p-5 rounded-2xl relative">
+        <div class="text-cyan-400 font-mono text-xs font-bold mb-2">02. INSTAN</div>
+        <div class="font-bold text-white text-sm mb-1">Draf Penawaran Resmi</div>
+        <p class="text-xs text-slate-400">Rangkuman spesifikasi harga langsung di-generate dalam format siap closing.</p>
+      </div>
+      <div class="glow-card p-5 rounded-2xl relative">
+        <div class="text-cyan-400 font-mono text-xs font-bold mb-2">03. DISPATCH</div>
+        <div class="font-bold text-white text-sm mb-1">Kirim WA & Notif Owner</div>
+        <p class="text-xs text-slate-400">Penawaran langsung meluncur ke WA prospek + notifikasi real-time ke admin.</p>
+      </div>
+      <div class="glow-card p-5 rounded-2xl relative border-cyan-500/40">
+        <div class="text-cyan-400 font-mono text-xs font-bold mb-2">04. CLOSING</div>
+        <div class="font-bold text-white text-sm mb-1">Auto Follow-Up 24 Jam</div>
+        <p class="text-xs text-slate-400">Otomatis menanyakan status penawaran ke prospek setelah 24 jam tanpa perlu admin manual.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE DEMO & CATALOG SECTION -->
+  <section id="katalog" class="py-12 bg-slate-950/60 border-t border-slate-900 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">Katalog Desain & Live Simulator</h2>
+        <p class="text-sm text-slate-400 mt-2">Pilih tema UI ChatBox AI dan uji langsung alur penawarannya.</p>
+        
+        <!-- THEME TABS -->
+        <div class="inline-flex mt-6 p-1 rounded-xl bg-slate-900 border border-slate-800" id="theme-selectors">
+          <button onclick="switchTheme('b2b-dark')" class="theme-btn active px-4 py-2 rounded-lg text-xs font-semibold text-white bg-cyan-600 transition-all" data-theme="b2b-dark">B2B Executive Dark</button>
+          <button onclick="switchTheme('minimal-saas')" class="theme-btn px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all" data-theme="minimal-saas">Modern Clean SaaS</button>
+          <button onclick="switchTheme('cyber-tech')" class="theme-btn px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all" data-theme="cyber-tech">Industrial Engineering</button>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE SIMULATION CONTAINER -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
+        
+        <!-- LEFT: CHATBOX WIDGET -->
+        <div class="lg:col-span-6 w-full max-w-md mx-auto">
+          <div id="chatbox-card" class="rounded-2xl border border-slate-800 bg-[#0d1424] shadow-2xl overflow-hidden flex flex-col h-[520px]">
+            <!-- CHAT HEADER -->
+            <div id="chat-header" class="p-4 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="relative">
+                  <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-bold text-white text-xs">AI</div>
+                  <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-[#0d1424]"></span>
+                </div>
+                <div>
+                  <div class="font-bold text-sm text-white flex items-center gap-2">
+                    Sarah — AI Sales Estimator
+                  </div>
+                  <div class="text-[11px] text-emerald-400 font-medium">Online • Balas Instan</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">5-Mnt Draft</span>
+            </div>
+
+            <!-- CHAT MESSAGES STREAM -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs leading-relaxed">
+              <div class="flex items-start gap-2">
+                <div class="w-6 h-6 rounded-full bg-cyan-600 flex-shrink-0 flex items-center justify-center text-[10px] font-bold">AI</div>
+                <div class="chat-bubble-ai p-3 rounded-2xl rounded-tl-sm text-slate-200 max-w-[85%]">
+                  Halo Bpk/Ibu! Selamat datang di <b>EvoFranklin</b>. Mau kami buatkan estimasi draf penawaran resmi untuk sistem otomasi bisnis Anda?
+                </div>
+              </div>
+              <div class="flex justify-end">
+                <div class="chat-bubble-user p-3 rounded-2xl rounded-tr-sm text-white max-w-[85%]">
+                  Boleh, tolong buatkan estimasi untuk AI Asisten B2B + integrasi WhatsApp.
+                </div>
+              </div>
+              <div class="flex items-start gap-2">
+                <div class="w-6 h-6 rounded-full bg-cyan-600 flex-shrink-0 flex items-center justify-center text-[10px] font-bold">AI</div>
+                <div class="chat-bubble-ai p-3 rounded-2xl rounded-tl-sm text-slate-200 max-w-[85%] space-y-2">
+                  <p>Siap! Ini rincian draf estimasi awal kebutuhan Anda:</p>
+                  <div class="bg-slate-950/70 p-2.5 rounded-lg border border-slate-800 font-mono text-[11px] space-y-1">
+                    <div class="flex justify-between text-slate-400"><span>Paket:</span> <span class="text-white font-semibold">AI Lead Funnel Pro</span></div>
+                    <div class="flex justify-between text-slate-400"><span>Fitur:</span> <span class="text-cyan-400">Auto Draft & WA Dispatch</span></div>
+                    <div class="flex justify-between text-slate-400"><span>Follow-Up:</span> <span class="text-emerald-400">Bot 24-Jam Otomatis</span></div>
+                    <div class="border-t border-slate-800 pt-1 flex justify-between text-slate-300 font-bold">
+                      <span>Estimasi:</span> <span class="text-cyan-300">Rp 4.500.000</span>
+                    </div>
+                  </div>
+                  <p class="text-[10px] text-slate-400 italic">⚠️ Draf siap dikirimkan ke WhatsApp resmi perusahaan Anda sekarang.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CHAT INPUT ACTION -->
+            <div class="p-3 bg-slate-900/90 border-t border-slate-800 flex gap-2">
+              <input type="text" id="demo-input" placeholder="Ketik nama / no WhatsApp Anda..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-500">
+              <button onclick="simulateDispatch()" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-bold text-xs rounded-xl transition-all flex items-center gap-1">
+                Kirim
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: SIMULATED BACKEND & WHATSAPP / FOLLOW-UP PREVIEW -->
+        <div class="lg:col-span-6 space-y-4">
+          <div class="glow-card p-6 rounded-2xl border border-slate-800">
+            <h3 class="text-sm font-bold text-white flex items-center justify-between mb-4">
+              <span>Status Pipeline Otomasi (Real-Time)</span>
+              <span id="pipeline-status" class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">SISTEM SIAP</span>
+            </h3>
+
+            <!-- TIMELINE SIMULATION -->
+            <div class="space-y-4 text-xs font-mono">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[10px] border border-emerald-500/40">✓</div>
+                <div>
+                  <div class="text-white font-semibold">1. Web Chat Qualified</div>
+                  <div class="text-slate-400 text-[11px]">Prospek mengisi spesifikasi paket AI Lead Funnel Pro.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-[10px] border border-cyan-500/40">✓</div>
+                <div>
+                  <div class="text-white font-semibold">2. PDF / Format Penawaran Selesai</div>
+                  <div class="text-slate-400 text-[11px]">Nomor Dokumen: <span class="text-cyan-300">EF-QUO-2026/X-091</span> ter-generate otomatis.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div id="step3-icon" class="w-6 h-6 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center font-bold text-[10px] border border-slate-700">3</div>
+                <div>
+                  <div class="text-white font-semibold">3. WhatsApp Dispatch (Client & Owner)</div>
+                  <div id="step3-desc" class="text-slate-400 text-[11px]">Menunggu trigger klik "Kirim" di simulasi.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div id="step4-icon" class="w-6 h-6 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center font-bold text-[10px] border border-slate-700">4</div>
+                <div>
+                  <div class="text-white font-semibold">4. Auto Follow-Up (H+24 Jam)</div>
+                  <div id="step4-desc" class="text-slate-400 text-[11px]">Scheduler aktif: Pesan follow up dijadwalkan otomatis setelah 24 jam.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PREVIEW PESAN WHATSAPP & FOLLOW UP -->
+            <div class="mt-6 pt-5 border-t border-slate-800/80">
+              <div class="text-xs font-semibold text-slate-300 mb-2">Simulasi Pesan Follow-Up 24 Jam:</div>
+              <div class="bg-[#0b141a] p-3 rounded-xl border border-emerald-900/50 text-emerald-200 text-[11px] leading-relaxed font-sans relative">
+                <div class="text-[10px] text-emerald-400/80 font-mono mb-1">WhatsApp Message • +24 Jam Otomatis</div>
+                "Halo Bpk/Ibu, salam dari EvoFranklin Studio. Melanjutkan draf estimasi <b>AI Lead Funnel Pro</b> kemarin, apakah ada spesifikasi teknis yang perlu kami sesuaikan agar bisa langsung lanjut tahap deployment minggu ini?"
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING / SETUP PACKAGES FOR CLIENTS -->
+  <section class="py-16 max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Pilihan Paket Setup untuk Klien Bisnis</h2>
+      <p class="text-sm text-slate-400 mt-2">Mas tinggal pilih desain dan tentukan harga jasa untuk klien Anda.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- PAKET 1 -->
+      <div class="glow-card p-6 rounded-2xl flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-mono uppercase px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Starter</span>
+          <h3 class="text-lg font-bold text-white mt-3">Smart Chatbox Web</h3>
+          <p class="text-xs text-slate-400 mt-1">Kustom desain UI ChatBox AI interaktif dipasang di web klien.</p>
+          <div class="text-2xl font-black text-white mt-4">Rp 1.5 - 2.5 Jt</div>
+          <ul class="mt-5 space-y-2 text-xs text-slate-300">
+            <li>✓ Desain ChatBox responsif (Mobile & PC)</li>
+            <li>✓ Custom persona & knowledge base produk</li>
+            <li>✓ Form lead capture langsung ke email</li>
+          </ul>
+        </div>
+        <button class="mt-6 w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs transition-all">Pilih Template</button>
+      </div>
+
+      <!-- PAKET 2 -->
+      <div class="glow-card p-6 rounded-2xl flex flex-col justify-between border-cyan-500/50 relative">
+        <div class="absolute -top-3 right-4 px-3 py-0.5 rounded-full bg-cyan-500 text-black text-[10px] font-black uppercase tracking-wider">Best Seller</div>
+        <div>
+          <span class="text-xs font-mono uppercase px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">B2B Funnel Pro</span>
+          <h3 class="text-lg font-bold text-white mt-3">AI Penawaran + WhatsApp</h3>
+          <p class="text-xs text-slate-400 mt-1">Chatbox langsung generate PDF/Draf harga dan kirim via WhatsApp.</p>
+          <div class="text-2xl font-black text-cyan-400 mt-4">Rp 3.5 - 6.0 Jt</div>
+          <ul class="mt-5 space-y-2 text-xs text-slate-300">
+            <li>✓ Semua fitur Starter</li>
+            <li>✓ Auto-calculate estimasi harga proyek</li>
+            <li>✓ Notifikasi WhatsApp instan ke Owner & Klien</li>
+            <li>✓ Format draf resmi siap closing</li>
+          </ul>
+        </div>
+        <button class="mt-6 w-full py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs transition-all">Pilih Template</button>
+      </div>
+
+      <!-- PAKET 3 -->
+      <div class="glow-card p-6 rounded-2xl flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-mono uppercase px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Enterprise</span>
+          <h3 class="text-lg font-bold text-white mt-3">Full Autopilot 24 Jam</h3>
+          <p class="text-xs text-slate-400 mt-1">Full mesin penjualan: penawaran instan + auto follow up 24 jam.</p>
+          <div class="text-2xl font-black text-white mt-4">Rp 7.5 - 15 Jt+</div>
+          <ul class="mt-5 space-y-2 text-xs text-slate-300">
+            <li>✓ Semua fitur B2B Funnel Pro</li>
+            <li>✓ Mesin auto follow-up WhatsApp 24 jam</li>
+            <li>✓ Integrasi CRM / Google Sheets dashboard</li>
+            <li>✓ Multi-agent (Sales, Support, Admin)</li>
+          </ul>
+        </div>
+        <button class="mt-6 w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs transition-all">Pilih Template</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-900 bg-[#04060d] py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="text-slate-300 font-bold">EvoFranklin AI Studio</span> — Studio AI-Assistant & Automation
+      </div>
+      <div class="font-mono text-[11px] text-slate-600">
+        Host target: ai.evofranklin.com
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function simulateDispatch() {
+      const input = document.getElementById('demo-input');
+      const val = input.value.trim() || 'Pak Hardy (0812xxxxxxx)';
+      const msgContainer = document.getElementById('chat-messages');
+
+      // Append user msg
+      const userDiv = document.createElement('div');
+      userDiv.className = 'flex justify-end';
+      userDiv.innerHTML = `<div class="chat-bubble-user p-3 rounded-2xl rounded-tr-sm text-white max-w-[85%]">${val}</div>`;
+      msgContainer.appendChild(userDiv);
+      input.value = '';
+
+      // Update Pipeline UI
+      document.getElementById('pipeline-status').innerText = 'PROSES SELESAI';
+      document.getElementById('step3-icon').className = 'w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[10px] border border-emerald-500/40';
+      document.getElementById('step3-icon').innerText = '✓';
+      document.getElementById('step3-desc').innerText = 'Pesan draf terkirim ke WhatsApp prospek & alert masuk ke Owner!';
+
+      document.getElementById('step4-icon').className = 'w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-[10px] border border-cyan-500/40';
+      document.getElementById('step4-icon').innerText = '✓';
+      document.getElementById('step4-desc').innerText = 'Jadwal follow-up otomatis aktif (T-24 Jam dihitung mulai sekarang).';
+
+      setTimeout(() => {
+        const aiDiv = document.createElement('div');
+        aiDiv.className = 'flex items-start gap-2';
+        aiDiv.innerHTML = `<div class="w-6 h-6 rounded-full bg-cyan-600 flex-shrink-0 flex items-center justify-center text-[10px] font-bold">AI</div><div class="chat-bubble-ai p-3 rounded-2xl rounded-tl-sm text-slate-200 max-w-[85%]">✅ Draf penawaran resmi telah terkirim ke WhatsApp Anda. Sistem otomatis kami akan mengecek statusnya dalam 24 jam. Terima kasih!</div>`;
+        msgContainer.appendChild(aiDiv);
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+      }, 500);
+    }
+
+    function switchTheme(theme) {
+      document.querySelectorAll('.theme-btn').forEach(b => {
+        b.classList.remove('bg-cyan-600', 'text-white');
+        b.classList.add('text-slate-400');
+      });
+      const activeBtn = document.querySelector(`[data-theme="${theme}"]`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-cyan-600', 'text-white');
+        activeBtn.classList.remove('text-slate-400');
+      }
+
+      const card = document.getElementById('chatbox-card');
+      const header = document.getElementById('chat-header');
+      if (theme === 'b2b-dark') {
+        card.style.background = '#0d1424';
+        header.style.background = 'rgba(15, 23, 42, 0.9)';
+      } else if (theme === 'minimal-saas') {
+        card.style.background = '#0f172a';
+        header.style.background = '#1e293b';
+      } else if (theme === 'cyber-tech') {
+        card.style.background = '#050c18';
+        header.style.background = '#0d1f38';
+      }
+    }
+  </script>
+</body>
+</html>
